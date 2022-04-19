@@ -17,34 +17,62 @@ function computerPlay() {
     }
 }
 function game(){
-    for (let i = 0; i < 5; i++) {
+    let humanScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i <= 5; i++) {
         const userInput = prompt("Rock, Paper, or Scissors?");
         const computerInput = computerPlay();
-        console.log(playRound(userInput, computerInput));
+        const gameResult = playRound(userInput, computerInput);
+        if (i === 5) {
+            if (humanScore > computerScore) {
+                console.log("You win!")
+            }
+            if (humanScore < computerScore) {
+                console.log("You lose!")
+            }
+        }
+        if (gameResult === 0) {
+            console.log("You lose! Computer chose " + computerInput + " !")
+            computerScore++
+            console.log("Score is " + humanScore + "-" + computerScore)
+        }
+        if (gameResult === 1) {
+            console.log("You tied! Computer chose " + computerInput + " !")
+            console.log("Restarting round!")
+            i--
+            console.log("Score is " + humanScore + "-" + computerScore)
+        }
+        if (gameResult === 2) {
+            console.log("You win! Computer chose " + computerInput + " !")
+            humanScore++
+            console.log("Score is " + humanScore + "-" + computerScore)
+        }
     }
 }
+
+
 
 function playRound(userInput, computerInput) {
 capitalize(userInput);
 if (userInput === computerInput) {
-    return userInput + " ties " + computerInput + "!"
+    return 1
 }
 if (userInput === "Rock" && computerInput === "Paper") {
-    return "You lose! Paper beats rock!"
+    return 0
 }
 if (userInput === "Rock" && computerInput === "Scissors") {
-    return "You win! Rock beats Scissors!"
+    return 2
 }
 if (userInput === "Paper" && computerInput === "Rock") {
-    return "You win! Paper beats rock!"
+    return 2
 }
 if (userInput === "Paper" && computerInput === "Scissors") {
-    return "You lose! Scissors beats Paper!"
+    return 0
 }
 if (userInput === "Scissors" && computerInput === "Rock") {
-    return "You lose! Rock beats Scissors!"
+    return 0
 }
 if (userInput === "Scissors" && computerInput === "Paper") {
-    return "You win! Scissors beats Paper!"
+    return 2
 }
 }
