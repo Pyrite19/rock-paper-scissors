@@ -29,7 +29,9 @@ function game() {
     }
 
     if (i != 5) {
-      const userInput = prompt("Rock, Paper, or Scissors?");
+      const userInput = prompt(
+        "Rock, Paper, or Scissors? (Can also use R, P, or S)"
+      );
       const computerInput = computerPlay();
       const gameResult = playRound(userInput, computerInput);
       if (gameResult === -1) {
@@ -55,8 +57,21 @@ function game() {
   }
 }
 
+function abbreviationResolver(string) {
+  if (string === "R") {
+    return "Rock";
+  }
+  if (string === "P") {
+    return "Paper";
+  }
+  if (string === "S") {
+    return "Scissors";
+  }
+}
+
 function playRound(userInput, computerInput) {
   userInput = capitalize(userInput);
+  userInput = abbreviationResolver(userInput);
   if (userInput != "Rock" && userInput != "Paper" && userInput != "Scissors") {
     console.log("Invalid input!");
     return -1;
