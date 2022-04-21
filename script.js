@@ -38,20 +38,20 @@ function game() {
         i--;
       }
       if (gameResult === 0) {
-        console.log("You lose! Computer chose " + computerInput + " !");
+        console.log(`You lose! Computer chose ${computerInput}!`);
         computerScore++;
-        console.log("Score is " + humanScore + "-" + computerScore);
+        console.log(`Score is ${humanScore}-${computerScore}` );
       }
       if (gameResult === 1) {
-        console.log("You tied! Computer chose " + computerInput + " !");
+        console.log(`You tied! Computer chose ${computerInput}!`);
         console.log("Restarting round!");
         i--;
-        console.log("Score is " + humanScore + "-" + computerScore);
+        console.log(`Score is ${humanScore}-${computerScore}`);
       }
       if (gameResult === 2) {
-        console.log("You win! Computer chose " + computerInput + " !");
+        console.log(`You win! Computer chose ${computerInput}!`);
         humanScore++;
-        console.log("Score is " + humanScore + "-" + computerScore);
+        console.log(`Score is ${humanScore}-${computerScore}`);
       }
     }
   }
