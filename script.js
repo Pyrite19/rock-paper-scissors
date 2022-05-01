@@ -69,7 +69,7 @@ function computerPlay() {
 //   }
 // }
 
-const container = document.querySelector(".container");
+const spacer = document.querySelector(".spacer");
 const div = document.createElement("div");
 const pResult = document.createElement("p");
 const currentScore = document.createElement("h2");
@@ -97,12 +97,12 @@ function playRound(userInput, computerInput) {
     currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Paper" && computerInput === "Scissors") {
-    pResult.textContent = "You lose this round";
+    pResult.textContent = "You lose this round!";
     computerScore++;
     currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Scissors" && computerInput === "Rock") {
-    pResult.textContent = "You lose this round";
+    pResult.textContent = "You lose this round!";
     computerScore++;
     currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
@@ -111,9 +111,11 @@ function playRound(userInput, computerInput) {
     humanScore++;
     currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
-  div.appendChild(pResult);
+
   div.appendChild(currentScore);
-  container.appendChild(div);
+  div.appendChild(pResult);
+  spacer.appendChild(div);
+
   if (humanScore === 5) {
     pResult.textContent = "You win the game!";
     currentScore.textContent = `Score is ${humanScore}-${computerScore}`;

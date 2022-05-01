@@ -1,5 +1,13 @@
 body {
+    display: flex;
+    flex-direction: column;
     background-color: #181818;
+    align-items: center;
+    margin: 48px;
+}
+
+.spacer {
+    text-align: center;
 }
 
 p {
