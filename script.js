@@ -69,62 +69,50 @@ function computerPlay() {
 //   }
 // }
 
-function playRound(userInput, computerInput) {
-  // userInput = capitalize(userInput);
-  // userInput = abbreviationResolver(userInput);
-  // if (userInput != "Rock" && userInput != "Paper" && userInput != "Scissors") {
-  //   console.log("Invalid input!");
-  //   return -1;
-  // }
-  if (userInput === computerInput) {
-    return "You tied this round!";
-  }
-  if (userInput === "Rock" && computerInput === "Paper") {
-    return "You lose this round!";
-  }
-  if (userInput === "Rock" && computerInput === "Scissors") {
-    return "You win this round!";
-  }
-  if (userInput === "Paper" && computerInput === "Rock") {
-    return "You win this round!";
-  }
-  if (userInput === "Paper" && computerInput === "Scissors") {
-    return "You lose this round";
-  }
-  if (userInput === "Scissors" && computerInput === "Rock") {
-    return "You lose this round";
-  }
-  if (userInput === "Scissors" && computerInput === "Paper") {
-    return "You win this round!";
-  }
-}
-
-let userInput = "";
-
 const container = document.querySelector(".container");
 const div = document.createElement("div");
 const p = document.createElement("p");
 
+function playRound(userInput, computerInput) {
+  if (userInput === computerInput) {
+    p.textContent = "You tied this round!";
+  }
+  if (userInput === "Rock" && computerInput === "Paper") {
+    p.textContent = "You lose this round!";
+  }
+  if (userInput === "Rock" && computerInput === "Scissors") {
+    p.textContent = "You win this round!";
+  }
+  if (userInput === "Paper" && computerInput === "Rock") {
+    p.textContent = "You win this round!";
+  }
+  if (userInput === "Paper" && computerInput === "Scissors") {
+    p.textContent = "You lose this round";
+  }
+  if (userInput === "Scissors" && computerInput === "Rock") {
+    p.textContent = "You lose this round";
+  }
+  if (userInput === "Scissors" && computerInput === "Paper") {
+    p.textContent = "You win this round!";
+  }
+  container.appendChild(div);
+  div.appendChild(p);
+}
+
 const rockBtn = document.querySelector(".playRock");
 rockBtn.addEventListener("click", (e) => {
   userInput = "Rock"
-  p.textContent = playRound(userInput, computerPlay());
-  container.appendChild(div);
-  div.appendChild(p);
+  playRound(userInput, computerPlay());
 });
 
 const paperBtn = document.querySelector(".playPaper");
 paperBtn.addEventListener("click", (e) => {
   userInput = "Paper"
-  p.textContent = playRound(userInput, computerPlay());
-  container.appendChild(div);
-  div.appendChild(p);
+  playRound(userInput, computerPlay());
 });
 
 const scissorsBtn = document.querySelector(".playScissors");
 scissorsBtn.addEventListener("click", (e) => {
   userInput = "Scissors"
-  p.textContent = playRound(userInput, computerPlay());
-  container.appendChild(div);
-  div.appendChild(p);
+  playRound(userInput, computerPlay());
 });
