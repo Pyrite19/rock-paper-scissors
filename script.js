@@ -72,7 +72,7 @@ function computerPlay() {
 const container = document.querySelector(".container");
 const div = document.createElement("div");
 const pResult = document.createElement("p");
-const currentScore = document.createElement("h3");
+const currentScore = document.createElement("h2");
 let humanScore = 0;
 let computerScore = 0;
 
@@ -114,6 +114,18 @@ function playRound(userInput, computerInput) {
   div.appendChild(pResult);
   div.appendChild(currentScore);
   container.appendChild(div);
+  if (humanScore === 5) {
+    pResult.textContent = "You win the game!";
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
+    computerScore = 0;
+    humanScore = 0;
+  }
+  if (computerScore === 5) {
+    pResult.textContent = "You lose the game!";
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
+    computerScore = 0;
+    humanScore = 0;
+  }
 }
 
 const rockBtn = document.querySelector(".playRock");
