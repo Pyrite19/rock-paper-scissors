@@ -71,48 +71,65 @@ function computerPlay() {
 
 const container = document.querySelector(".container");
 const div = document.createElement("div");
-const p = document.createElement("p");
+const pResult = document.createElement("p");
+const currentScore = document.createElement("h3");
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound(userInput, computerInput) {
   if (userInput === computerInput) {
-    p.textContent = "You tied this round!";
+    pResult.textContent = "You tied this round!";
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Rock" && computerInput === "Paper") {
-    p.textContent = "You lose this round!";
+    pResult.textContent = "You lose this round!";
+    computerScore++;
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Rock" && computerInput === "Scissors") {
-    p.textContent = "You win this round!";
+    pResult.textContent = "You win this round!";
+    humanScore++;
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Paper" && computerInput === "Rock") {
-    p.textContent = "You win this round!";
+    pResult.textContent = "You win this round!";
+    humanScore++;
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Paper" && computerInput === "Scissors") {
-    p.textContent = "You lose this round";
+    pResult.textContent = "You lose this round";
+    computerScore++;
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Scissors" && computerInput === "Rock") {
-    p.textContent = "You lose this round";
+    pResult.textContent = "You lose this round";
+    computerScore++;
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
   if (userInput === "Scissors" && computerInput === "Paper") {
-    p.textContent = "You win this round!";
+    pResult.textContent = "You win this round!";
+    humanScore++;
+    currentScore.textContent = `Score is ${humanScore}-${computerScore}`;
   }
+  div.appendChild(pResult);
+  div.appendChild(currentScore);
   container.appendChild(div);
-  div.appendChild(p);
 }
 
 const rockBtn = document.querySelector(".playRock");
 rockBtn.addEventListener("click", (e) => {
-  userInput = "Rock"
+  userInput = "Rock";
   playRound(userInput, computerPlay());
 });
 
 const paperBtn = document.querySelector(".playPaper");
 paperBtn.addEventListener("click", (e) => {
-  userInput = "Paper"
+  userInput = "Paper";
   playRound(userInput, computerPlay());
 });
 
 const scissorsBtn = document.querySelector(".playScissors");
 scissorsBtn.addEventListener("click", (e) => {
-  userInput = "Scissors"
+  userInput = "Scissors";
   playRound(userInput, computerPlay());
 });
