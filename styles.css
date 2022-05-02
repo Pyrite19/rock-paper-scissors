@@ -3,7 +3,7 @@ body {
     flex-direction: column;
     background-color: #181818;
     align-items: center;
-    margin: 48px;
+    justify-content: center;
 }
 
 .spacer {
