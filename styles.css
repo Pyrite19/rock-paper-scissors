@@ -1,19 +1,20 @@
 body {
-    display: flex;
-    flex-direction: column;
-    background-color: #181818;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+  align-items: center;
+  justify-content: center;
+  background-image: url("images/hell.jpg");
 }
 
 .spacer {
-    text-align: center;
+  text-align: center;
 }
 
 p {
-    color: aliceblue;
+  color: aliceblue;
 }
 
 h2 {
-    color: aliceblue;
+  color: aliceblue;
 }
